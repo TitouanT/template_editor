@@ -5,13 +5,11 @@ use eframe::egui;
 use egui_dnd::dnd;
 
 fn main() -> eframe::Result {
-    // let options = eframe::NativeOptions {
-    //     ..Default::default()
-    // };
     eframe::run_native(
         "Template editor",
         eframe::NativeOptions::default(),
-        Box::new(|_| {
+        Box::new(|creation_context| {
+            creation_context.egui_ctx.set_theme(egui::Theme::Dark);
             Ok(Box::<MyApp>::default())
         }),
     )
